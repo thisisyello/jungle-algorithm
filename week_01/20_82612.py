@@ -22,15 +22,14 @@ price	money	count	result
 총 필요한 놀이기구의 이용 금액은 30 (= 3+6+9+12) 이 되어 10만큼 부족하므로 10을 return 합니다.
 '''
 
-
 def solution(price, money, count):
+    pay = 0
 
     for i in range(1, count + 1):
-        money -= price * i
-        
-    if money >= 0:
+        pay += price * i
+    if money - pay >= 0:
         return 0
-    else:
-        return abs(money)
+    
+    return pay - money
 
 print(solution(3, 20, 4))
