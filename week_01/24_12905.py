@@ -40,20 +40,20 @@ board	                                    answer
 로 가장 큰 정사각형의 넓이는 4가 되므로 4를 return합니다.
 '''
 
-def solution(arr):
+def solution(board):
     width = 0
 
-    for row in arr:
+    for row in board:
         if 1 in row:
             width = 1
             break
 
-    for i in range(1, len(arr)):
-        for j in range(1, len(arr[i])):
-            if arr[i][j] == 1:
-                arr[i][j] = min(arr[i][j - 1], arr[i - 1][j], arr[i - 1][j - 1]) + 1
-                if width < arr[i][j]:
-                    width = arr[i][j]
+    for i in range(1, len(board)):
+        for j in range(1, len(board[i])):
+            if board[i][j] == 1:
+                board[i][j] = min(board[i][j - 1], board[i - 1][j], board[i - 1][j - 1]) + 1
+                if width < board[i][j]:
+                    width = board[i][j]
 
     return width * width
 
