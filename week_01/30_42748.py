@@ -30,13 +30,24 @@ array	                commands	                        return
 
 def solution(arr, commands):
     answer = []
-    nums = []
-    for i in range(len(commands)):
-        for j in range((commands[i][0] - 1), commands[i][1]):
-            nums.append(arr[j])
+
+    for command in commands:
+        i = command[0]
+        j = command[1]
+        k = command[2]
+
+        nums = arr[i-1:j]
         nums.sort()
-        answer.append(nums[commands[i][2] - 1])
-        nums = []
+
+        answer.append(nums[k-1])
+
+    # nums = []
+    # for i in range(len(commands)):
+    #     for j in range((commands[i][0] - 1), commands[i][1]):
+    #         nums.append(arr[j])
+    #     nums.sort()
+    #     answer.append(nums[commands[i][2] - 1])
+    #     nums = []
 
     return answer
 
