@@ -39,16 +39,14 @@ def z_order(size, row, col):
     # 1사분면: 왼쪽 위
     if row < half and col < half:
         return z_order(half, row, col)
-
     # 2사분면: 오른쪽 위
-    if row < half and col >= half:
+    elif row < half and col >= half:
         return area + z_order(half, row, col - half)
-
     # 3사분면: 왼쪽 아래
-    if row >= half and col < half:
+    elif row >= half and col < half:
         return 2 * area + z_order(half, row - half, col)
 
     # 4사분면: 오른쪽 아래
     return 3 * area + z_order(half, row - half, col - half)
 
-print(z_order(2 ** n, r, c))
+print(z_order(size, r, c))
